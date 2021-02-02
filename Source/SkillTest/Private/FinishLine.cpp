@@ -60,21 +60,21 @@ void AFinishLine::OnComponentBeginOverlap(UPrimitiveComponent* OverlappedComp, A
 {
 	if(Cast<ASkillTestCharacter>(OtherActor))
 	{
-		if(STGameInstance && MainMenuWidgetClass)
+		if(MainMenuWidgetClass)
 		{
-			MainMenuWidget = CreateWidget<UMainMenuWidget>(GetWorld(), MainMenuWidgetClass);
+			MainMenuWidget = CreateWidget<UMainMenuWidget>(GetWorld()->GetFirstPlayerController(), MainMenuWidgetClass);
 		
-			if(MainMenuWidget)
+			if(MainMenuWidget && STGameInstance)
 			{
 				// MapScoresWidget = MainMenuWidget->GetMapScoreWidgetByLevelName(UGameplayStatics::GetCurrentLevelName(GetWorld()));
-				UE_LOG(LogTemp, Warning, TEXT(" current level name: %s"), *UGameplayStatics::GetCurrentLevelName(GetWorld()));
-		
+				// UE_LOG(LogTemp, Warning, TEXT(" current level name: %s"), *UGameplayStatics::GetCurrentLevelName(GetWorld()));
+				//
 				// if(MapScoresWidget)
 				// {
 				// 	MapScoresWidget->UpdatePoints(STGameInstance->PointsCollected);
 				// 	MapScoresWidget->UpdateTimeToComplete(TimeToFinish);
 				// }
-		
+				
 				MainMenuWidget->AddToViewport();
 				if(GetWorld()->GetFirstPlayerController())
 				{

@@ -23,16 +23,6 @@ public:
 	
 	int PointsCollected = 0;
 
-private:
-	
-	UMainMenuWidget * MainMenuWidget;
-
-public:
-	
-	UFUNCTION(BlueprintCallable)
-	void SetMainMenuWidget(UMainMenuWidget * WidgetToSet) { MainMenuWidget = WidgetToSet; }
-
-	UFUNCTION(BlueprintCallable)
-	FORCEINLINE UMainMenuWidget * GetMainMenuWidget() const { return MainMenuWidget; }
+	TArray<UMapScoresWidget*>  MapScoresWidgets;
 
 };

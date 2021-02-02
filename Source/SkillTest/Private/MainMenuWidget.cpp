@@ -3,23 +3,38 @@
 
 #include "MainMenuWidget.h"
 
+#include "STGameInstance.h"
+
 void UMainMenuWidget::SetMapScoresWidgets(TArray<UMapScoresWidget*> WidgetsToSet)
 {
-	MapScoresWidgets.Empty();
-	for(auto &Widget : WidgetsToSet)
+	for(UMapScoresWidget * Widget : WidgetsToSet)
 	{
-		MapScoresWidgets.Add(Widget);
+		MapScoresWidgets.AddUnique(Widget);
+		USTGameInstance * GameInstance = Cast<USTGameInstance>(GetGameInstance());
+		if(GameInstance)
+		{
+			GameInstance->MapScoresWidgets.AddUnique(Widget);
+		}
 	}
 }
 
 UMapScoresWidget* UMainMenuWidget::GetMapScoreWidgetByLevelName(FString LevelName)
 {
-	for(auto& Widget : MapScoresWidgets)
+	USTGameInstance * GameInstance = Cast<USTGameInstance>(GetGameInstance());
+	
+	if(GameInstance)
 	{
-		if(Widget->GetLevelName() == LevelName)
+		if(GameInstance->MapScoresWidgets.Num() > 0)
 		{
-			return Widget;
+			for(auto& Widget : GameInstance->MapScoresWidgets)
+			{
+				if(Widget->GetLevelName() == LevelName)
+				{
+					return Widget;
+				}
+			}
 		}
+		
 	}
 	return nullptr;
 }
