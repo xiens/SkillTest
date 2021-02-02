@@ -72,3 +72,11 @@ Plugins/*/Intermediate/*
 
 # Cache files for the editor to use
 DerivedDataCache/*
+.idea/.idea.SkillTest/.idea/contentModel.xml
+.idea/.idea.SkillTest/.idea/encodings.xml
+.idea/.idea.SkillTest/.idea/indexLayout.xml
+.idea/.idea.SkillTest/.idea/modules.xml
+.idea/.idea.SkillTest/.idea/projectSettingsUpdater.xml
+.idea/.idea.SkillTest/.idea/riderModule.iml
+.idea/.idea.SkillTest/.idea/vcs.xml
+.idea/.idea.SkillTest/.idea/workspace.xml

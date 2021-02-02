@@ -1,0 +1,21 @@
+﻿Celem zadania testowego jest oprogramowanie części lub wszystkich wymaganych obiektów oraz zmierzenie czasu roboczego przeznaczonego na wykonanie zadania.
+
+
+Kod może zostać wykonane w blueprintach albo C++, powinien zachować możliwie jak największą elastyczność umożliwiającą designerom większą swobodę.
+
+
+
+Wymagane interakcje:
+1.  BP_Button - ma mieć możliwość aktywacji BP_MovingPlatform oraz BP_Gate 
+   1. Przycisk powinien funkcjonować jako toggle albo hold
+2. BP_Gate - ma mieć możliwość otworzenia przez X przycisków
+3. BP_Obstacle - Kostka którą można aktywować przycisk.
+4. BP_Checkpoint - po wejściu w ten obiekt, powinien zapisywać obecny stan mapy. By przywrócić jej stan po śmierci gracza. 
+5. BP_KillBox - określa śmierć gracza
+6. BP_FinishLine - zakończenie poziomu. Powinien wyświetlić planszę z czasem i punktami na zakończenie mapy.
+7. BP_KillBox - wysyła gracza do checkpoint
+8. BP_Collectable - Dodaje punkty
+9. WBP_MainMenu - Menu główne które wyświetla przyciski z mapami do wyboru. Na przyciskach jest wyświetlany najlepszy czas i punkty.  Poszczególne mapy mają być odblokowane po skończeniu poprzedniej.
+
+
+
