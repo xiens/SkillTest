@@ -13,19 +13,13 @@ class SKILLTEST_API AFinishLine : public AActor
 	GENERATED_BODY()
 	
 public:	
-	// Sets default values for this actor's properties
+
 	AFinishLine();
 
 protected:
-	
-	UPROPERTY(EditDefaultsOnly)
-	TSubclassOf<class UMainMenuWidget> MainMenuWidgetClass;
 
 	UPROPERTY(VisibleDefaultsOnly)
 	class USphereComponent* SphereCollision;
-
-	UPROPERTY()
-	UMainMenuWidget * MainMenuWidget;
 	
 	virtual void BeginPlay() override;
 
@@ -36,15 +30,10 @@ protected:
 	UFUNCTION()
 	void OnComponentBeginOverlap(class UPrimitiveComponent* OverlappedComp, AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 
-public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
-
 private:
 
-	bool IsLevelFinished = false;
 	class USTGameInstance * STGameInstance;
-	class UMapScoresWidget * MapScoresWidget;
+	bool IsLevelFinished = false;
 	FTimerHandle FinishLevelTimerHandle;
 	float TimeToFinish = 0;
 	float TimeDiff = 0.01f;

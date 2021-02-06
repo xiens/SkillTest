@@ -20,8 +20,12 @@ class SKILLTEST_API USTGameInstance : public UGameInstance
 	GENERATED_BODY()
 
 public:
-	
+
+	UPROPERTY(BlueprintReadOnly)
 	int PointsCollected = 0;
+
+	UPROPERTY(BlueprintReadOnly)
+	float PlayersTime = 0;
 
 	TArray<UMapScoresWidget*>  MapScoresWidgets;
 

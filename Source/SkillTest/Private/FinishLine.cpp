@@ -58,43 +58,11 @@ void AFinishLine::MeasureTimeToFinish()
 void AFinishLine::OnComponentBeginOverlap(UPrimitiveComponent* OverlappedComp, AActor* OtherActor,
 	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	if(Cast<ASkillTestCharacter>(OtherActor))
+	if(Cast<ASkillTestCharacter>(OtherActor) && STGameInstance)
 	{
-		if(MainMenuWidgetClass)
-		{
-			MainMenuWidget = CreateWidget<UMainMenuWidget>(GetWorld()->GetFirstPlayerController(), MainMenuWidgetClass);
-		
-			if(MainMenuWidget && STGameInstance)
-			{
-				// MapScoresWidget = MainMenuWidget->GetMapScoreWidgetByLevelName(UGameplayStatics::GetCurrentLevelName(GetWorld()));
-				// UE_LOG(LogTemp, Warning, TEXT(" current level name: %s"), *UGameplayStatics::GetCurrentLevelName(GetWorld()));
-				//
-				// if(MapScoresWidget)
-				// {
-				// 	MapScoresWidget->UpdatePoints(STGameInstance->PointsCollected);
-				// 	MapScoresWidget->UpdateTimeToComplete(TimeToFinish);
-				// }
-				
-				MainMenuWidget->AddToViewport();
-				if(GetWorld()->GetFirstPlayerController())
-				{
-					GetWorld()->GetFirstPlayerController()->bShowMouseCursor = true; 
-					GetWorld()->GetFirstPlayerController()->bEnableClickEvents = true; 
-					GetWorld()->GetFirstPlayerController()->bEnableMouseOverEvents = true;
-				}
-			}
-				
-
-		}
+		STGameInstance->PlayersTime = TimeToFinish;
+		UE_LOG(LogTemp, Warning, TEXT(" overlap finishline"))
 		IsLevelFinished = true;
-
 	}
-}
-
-// Called every frame
-void AFinishLine::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-
 }
 
