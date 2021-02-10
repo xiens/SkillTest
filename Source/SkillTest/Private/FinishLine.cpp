@@ -62,7 +62,7 @@ void AFinishLine::OnComponentBeginOverlap(UPrimitiveComponent* OverlappedComp, A
 	{
 		STGameInstance->PlayersTime = TimeToFinish;
 		UE_LOG(LogTemp, Warning, TEXT(" overlap finishline"))
-		IsLevelFinished = true;
+		IsLevelFinished = true;		
 	}
 }
 
