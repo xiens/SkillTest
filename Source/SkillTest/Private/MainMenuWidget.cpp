@@ -3,5 +3,4 @@
 
 #include "MainMenuWidget.h"
 
-#include "STGameInstance.h"
 

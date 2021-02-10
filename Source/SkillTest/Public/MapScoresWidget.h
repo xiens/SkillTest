@@ -14,19 +14,4 @@ class SKILLTEST_API UMapScoresWidget : public UUserWidget
 {
 	GENERATED_BODY()
 
-public:
-
-	UPROPERTY(BlueprintReadWrite)
-	FString LevelName;
-
-	UFUNCTION(BlueprintCallable)
-    void SetLevelName(FString LevelNameToSet){ LevelName = LevelNameToSet; }
-	
-	UFUNCTION(BlueprintImplementableEvent)
-	void UpdateTimeToComplete(float Time);
-
-	UFUNCTION(BlueprintImplementableEvent)
-	void UpdatePoints(int Points);
-
-	FORCEINLINE FString GetLevelName() const { return LevelName; }
 };

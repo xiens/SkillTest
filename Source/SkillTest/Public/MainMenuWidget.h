@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 
-#include "MapScoresWidget.h"
 #include "Blueprint/UserWidget.h"
 #include "MainMenuWidget.generated.h"
 
