@@ -24,7 +24,4 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 	int PointsCollected = 0;
 
-	UPROPERTY(BlueprintReadOnly)
-	float PlayersTime = 0;
-
 };
