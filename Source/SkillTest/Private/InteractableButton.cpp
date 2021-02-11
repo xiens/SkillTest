@@ -39,13 +39,16 @@ void AInteractableButton::OnComponentBeginOverlap(UPrimitiveComponent* Overlappe
 {
 	AObstacle * Obstacle = Cast<AObstacle>(OtherActor);
 
-	if(Obstacle)
+	if(Obstacle && !IsButtonPressed)
 	{
 		IsButtonPressed = true;
 
 		if(Gate)
 		{
-			Gate->StartMoving(true);
+			if(!Gate->GetIsMoving())
+			{
+				Gate->StartMoving(!Gate->GetIsOpened());
+			}
 		}
 
 		if(MovingPlatform)
@@ -61,13 +64,16 @@ void AInteractableButton::OnComponentEndOverlap(UPrimitiveComponent* OverlappedC
 {
 	AObstacle * Obstacle = Cast<AObstacle>(OtherActor);
 
-	if(Obstacle)
+	if(Obstacle && IsButtonPressed)
 	{
 		IsButtonPressed = false;
 
 		if(Gate)
 		{
-			Gate->StartMoving(false);
+			if(!Gate->GetIsMoving())
+			{
+				Gate->StartMoving(!Gate->GetIsOpened());
+			}
 		}
 		
 		if(MovingPlatform)

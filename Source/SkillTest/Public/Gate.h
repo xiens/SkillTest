@@ -36,10 +36,17 @@ protected:
 public:	
 	void StartMoving(bool IsOpening);
 
+	FORCEINLINE bool GetIsMoving() const { return IsMoving; }
+
+	FORCEINLINE bool GetIsOpened() const { return IsOpened; }
+
 private:
 	FTimerHandle GateTimerHandle;
 	float CurrentTime = 0;
 	float TimeDiff = 0.01f;
+
+	bool IsMoving;
+	bool IsOpened;
 	
 	void Move(float Speed);
 
