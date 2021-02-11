@@ -45,9 +45,9 @@ void AInteractableButton::OnComponentBeginOverlap(UPrimitiveComponent* Overlappe
 
 		if(Gate)
 		{
-			if(!Gate->GetIsMoving())
+			if(!Gate->GetIsMoving() && !Gate->GetIsOpened())
 			{
-				Gate->StartMoving(!Gate->GetIsOpened());
+				Gate->StartMoving(true);
 			}
 		}
 
@@ -70,9 +70,9 @@ void AInteractableButton::OnComponentEndOverlap(UPrimitiveComponent* OverlappedC
 
 		if(Gate)
 		{
-			if(!Gate->GetIsMoving())
+			if(!Gate->GetIsMoving() && Gate->GetIsOpened())
 			{
-				Gate->StartMoving(!Gate->GetIsOpened());
+				Gate->StartMoving(false);
 			}
 		}
 		
